@@ -16,6 +16,4 @@ router.get('/blog/:post', (req, res) => {
 	res.send(`Requested ${req.params.post}`)
 })
 
-
-
 module.exports = router

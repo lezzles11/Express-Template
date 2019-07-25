@@ -5,6 +5,15 @@ let app = express()
 // everytime you add a route, add this and a file in routes
 let blogRoute = require('./routes/blog')
 app.use(blogRoute)
+
+app.use((req, res, next) => {
+	console.log(`${new Date().toString()} => ${req.originalUrl}`)
+	// need to call next 
+	next()
+})
+
+
+
 // use static file handler (or, middleware)
 app.use(express.static('public'))
 
