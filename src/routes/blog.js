@@ -11,6 +11,7 @@ router.get('/blog', (req, res) => {
 	}
 })
 // http://localhost:3000/blog/Thomas
+// this get request will render "requested thomas"
 router.get('/blog/:post', (req, res) => {
 	res.send(`Requested ${req.params.post}`)
 })
