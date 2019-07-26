@@ -40,6 +40,8 @@ router.get('/post', (req, res) => {
 // update
 router.put('/post', (req, res) => {
 	if (!req.query.title) {
+		console.log(req)
+		console.log(req.query)
 		return res.status(400).send('missing title')
 	} 
 	PostModel.findOneAndUpdate({
@@ -49,6 +51,7 @@ router.put('/post', (req, res) => {
 	})
 	.then(doc => {
 		res.json(doc)
+		console.log(req.query)
 	})
 	.catch(err => {
 		res.status(500).json(err)
@@ -60,6 +63,8 @@ router.put('/post', (req, res) => {
 // delete
 router.delete('/post', (req, res) => {
 	if (!req.query.title) {
+		console.log(req.query)
+		console.log('here')
 		return res.status(400).send('Missing Title')
 	}
 	PostModel.deleteOne({
